@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header ("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public string controllerJumpButton = "buttonSouth";
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -77,6 +79,17 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        else if (Input.GetButtonDown(controllerJumpButton) && readyToJump && grounded)
+        {
+            Debug.Log("hello jumped");
+            readyToJump = false;
+
+            OnButtonRegular();
+   
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+       
     }
 
     private void MovePlayer()
@@ -105,6 +118,18 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void OnButtonRegular()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void OnButtonHold()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0.5f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 

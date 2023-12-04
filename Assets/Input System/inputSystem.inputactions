@@ -1,0 +1,74 @@
+{
+    "name": "inputSystem",
+    "maps": [
+        {
+            "name": "PlayerOnGround",
+            "id": "16d97d9d-c82f-46a1-adb9-1df94f1f7548",
+            "actions": [
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "b1edbafc-c6ea-44cc-9f2c-ec465e433199",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ButtonRegular",
+                    "type": "Button",
+                    "id": "df520549-341f-41c1-9898-e05e8d5ed6fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ButtonHold",
+                    "type": "Button",
+                    "id": "e06fe525-244b-410b-923a-2f6eba75b579",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e012a8d3-3b0a-420f-a74b-22f82ed0d92f",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a130e4f-fd39-40bb-9a44-623edffceeb7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonRegular",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37a5e0f0-5403-437b-b4f6-8cd746888120",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
