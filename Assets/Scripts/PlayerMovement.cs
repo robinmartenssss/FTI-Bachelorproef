@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // player ison ground

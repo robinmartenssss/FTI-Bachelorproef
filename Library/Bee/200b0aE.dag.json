@@ -23442,7 +23442,7 @@
       "DisplayName": "Writing Assembly-CSharp.rsp",
       "ActionType": "WriteFile",
       "PayloadOffset": 1774079,
-      "PayloadLength": 33657,
+      "PayloadLength": 33688,
       "PayloadDebugContentSnippet": "-target:library\n-out:\"Library/",
       "Inputs": [],
       "Outputs": [
@@ -23454,7 +23454,7 @@
       "Annotation": "WriteText Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp.rsp2",
       "DisplayName": "Writing Assembly-CSharp.rsp2",
       "ActionType": "WriteFile",
-      "PayloadOffset": 1807822,
+      "PayloadOffset": 1807853,
       "PayloadLength": 0,
       "PayloadDebugContentSnippet": "",
       "Inputs": [],
@@ -23704,6 +23704,7 @@
         "Library/Bee/artifacts/200b0aE.dag/Unity.VSCode.Editor.ref.dll",
         "Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll",
         "Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll",
+        "Assets/Scripts/MoveCamera.cs",
         "Assets/Scripts/PlayerMovement.cs",
         "Assets/Scripts/PS4Controller.cs",
         "Assets/Scripts/ThirdPersonCam.cs",
@@ -23770,7 +23771,7 @@
       "Annotation": "WriteText Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp.dll.mvfrm.rsp",
       "DisplayName": "Writing Assembly-CSharp.dll.mvfrm.rsp",
       "ActionType": "WriteFile",
-      "PayloadOffset": 1807917,
+      "PayloadOffset": 1807948,
       "PayloadLength": 9422,
       "PayloadDebugContentSnippet": "Library/Bee/artifacts/mvdfrm/U",
       "Inputs": [],
@@ -25038,7 +25039,7 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Tools/netcorerun/netcorerun\" \"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Assets/Plugins/Demigiant/DOTween/DOTween.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Assembly-CSharp.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Cinemachine.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.InputSystem.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.InputSystem.TestFramework.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.TextMeshPro.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.Timeline.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/Unity.VisualScripting.State.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/UnityEngine.TestRunner.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies/UnityEngine.UI.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll\" -a=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Managed/UnityEngine\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/Extensions/2.0.0\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/ref/2.1.0\" -s=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Assets/Plugins/Demigiant/DOTween\" -s=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/ScriptAssemblies\" -s=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom\" -s=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator\" -s=\"/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Tools/netcorerun/netcorerun\" \"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Assets/Plugins/Demigiant/DOTween/DOTween.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Assembly-CSharp.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Cinemachine.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.InputSystem.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.InputSystem.TestFramework.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.TextMeshPro.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.Timeline.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/Unity.VisualScripting.State.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/UnityEngine.TestRunner.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies/UnityEngine.UI.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll\" -a=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Managed/UnityEngine\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/Extensions/2.0.0\" -s=\"/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/NetStandard/ref/2.1.0\" -s=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Assets/Plugins/Demigiant/DOTween\" -s=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/ScriptAssemblies\" -s=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom\" -s=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator\" -s=\"/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
         "/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Tools/netcorerun/netcorerun",
         "/Applications/Unity/Hub/Editor/2022.3.11f1/Unity.app/Contents/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
@@ -25201,7 +25202,7 @@
   ],
   "StatSignatures": [
     {
-      "File": "/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/getconf"
+      "File": "/Users/robinmartenssss/Desktop/FTI-Bachelorproef/getconf"
     },
     {
       "File": "Assets/csc.rsp"
@@ -25353,6 +25354,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/200b0aE.dag.json",
-  "PayloadsFile": "/Users/robinmartenssss/Desktop/Demo BAP/Demo BAP/Library/Bee/200b0aE.dag.payloads",
+  "PayloadsFile": "/Users/robinmartenssss/Desktop/FTI-Bachelorproef/Library/Bee/200b0aE.dag.payloads",
   "RelativePathToRoot": "../.."
 }
