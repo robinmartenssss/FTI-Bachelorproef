@@ -118,6 +118,7 @@ m_ResolvedPackages:
     - 3.0.0-pre.7
     - 3.0.0-pre.8
     - 3.0.0-pre.9
+    - 3.0.1
     compatible:
     - 2.9.5
     - 2.9.7
@@ -128,6 +129,7 @@ m_ResolvedPackages:
     - 3.0.0-pre.7
     - 3.0.0-pre.8
     - 3.0.0-pre.9
+    - 3.0.1
     recommended: 2.9.7
     deprecated: []
   dependencies:
@@ -3110,10 +3112,12 @@ m_ResolvedPackages:
     - 3.0.24
     - 3.0.25
     - 3.0.26
+    - 3.0.27
     compatible:
     - 3.0.25
     - 3.0.26
-    recommended: 3.0.26
+    - 3.0.27
+    recommended: 3.0.27
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
