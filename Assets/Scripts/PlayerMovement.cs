@@ -138,4 +138,10 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = true;
     }
+
+    public void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "SceneTransitionBasket") {
+            GameBehaviour.Instance.sceneToMoveTo();
+        }
+    }
 }

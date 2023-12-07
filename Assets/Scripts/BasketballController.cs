@@ -20,8 +20,13 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject scoringCylinderGreenEast; 
     public GameObject scoringCylinderGreenSouth; 
     public GameObject scoringCylinderGreenWest; 
+    public GameObject scoringTextDoctype;
+    public GameObject scoringTextHtml;
+    public GameObject scoringTextBody;
+    public GameObject scoringTextHtmlclose;
 
     private GameObject scoringCylinder;
+    private GameObject scoringText;
     
 
     private bool IsBallInHands = true;
@@ -318,20 +323,26 @@ private void ShowScoringCylinder(Vector3 position, Direction scoringDirection)
         Debug.Log("Showing scoring cylinder at position: " + position);
 
         GameObject scoringCylinder = null;
+        GameObject scoringText = null;
+        
 
         switch (scoringDirection)
         {
             case Direction.North:
                 scoringCylinder = scoringCylinderGreenNorth;
+                scoringText = scoringTextDoctype;
                 break;
             case Direction.East:
                 scoringCylinder = scoringCylinderGreenEast;
+                scoringText = scoringTextHtml;
                 break;
             case Direction.South:
                 scoringCylinder = scoringCylinderGreenSouth;
+                scoringText = scoringTextHtmlclose;
                 break;
             case Direction.West:
                 scoringCylinder = scoringCylinderGreenWest;
+                scoringText = scoringTextBody;
                 break;
             default:
                 Debug.LogError("Invalid scoring direction!");
@@ -342,6 +353,7 @@ private void ShowScoringCylinder(Vector3 position, Direction scoringDirection)
 
             {
                 scoringCylinder.SetActive(true);
+                scoringText.SetActive(true);
                 StartCoroutine(DeactivateScoringCylinderAfterDelay(scoringDirection));
             }
         else
@@ -374,6 +386,12 @@ private IEnumerator DeactivateScoringCylinderAfterDelay(Direction direction)
 private void SetCurrentDirection(Direction direction) {
     currentDirection = direction;
 }
+
+  public void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "SceneTransitionBack") {
+            GameBehaviour.Instance.sceneToMoveBackTo();
+        }
+    }
    
 
 }

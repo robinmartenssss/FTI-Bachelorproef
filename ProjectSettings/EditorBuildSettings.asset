@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainAreaScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/BasketCodeGame.unity
+    guid: e01a691c1f0cc4d26a8952202a1da525
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0cd5d2adc80b64f199dd7fc675e3577b, type: 2}
