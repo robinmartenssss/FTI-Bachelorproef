@@ -40,6 +40,8 @@ public class NewBehaviourScript : MonoBehaviour
     private float T = 0;
     private Direction currentDirection;
 
+    private static float timeSinceMovement = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,13 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
          //walking
-        Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        transform.position += direction * MoveSpeed * Time.deltaTime;
-        transform.LookAt(transform.position + direction);
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); 
+        float verticalInput = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
+
+      
     
         if (IsBallInHands) {
             if (Input.GetButtonDown("Shoot")) {
@@ -99,7 +105,25 @@ public class NewBehaviourScript : MonoBehaviour
             }
            
         }
-     
+
+        // Check if there is movement other wise reset scene 
+
+        timeSinceMovement += Time.deltaTime;
+        Debug.Log(timeSinceMovement);
+
+        if ( direction != Vector3.zero) {
+            transform.position += direction * MoveSpeed * Time.deltaTime;
+            transform.LookAt(transform.position + direction);
+            timeSinceMovement = 0f;
+        } if (timeSinceMovement >= 5f && timeSinceMovement <= 5.025f){
+                Debug.Log("hello");
+                ResetScene();
+        } else if (timeSinceMovement >= 8f){
+                Debug.Log("helloreset");
+                ResetGame();
+        }
+           
+    
 
         if (IsBallFlyingSouth) {
             T += Time.deltaTime;
@@ -387,11 +411,21 @@ private void SetCurrentDirection(Direction direction) {
     currentDirection = direction;
 }
 
-  public void OnCollisionEnter(Collision collision){
+public void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "SceneTransitionBack") {
             GameBehaviour.Instance.sceneToMoveBackTo();
         }
     }
+
+private void ResetScene(){
+    GameBehaviour.Instance.ReloadCurrentScene();
+}
+
+private void ResetGame(){
+    GameBehaviour.Instance.ReloadMainArea();
+
+    timeSinceMovement = 0f;
+}
    
 
 }

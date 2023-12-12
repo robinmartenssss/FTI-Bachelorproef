@@ -41,4 +41,14 @@ public class GameBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene("MainAreaScene");
     }
+
+     public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+     public void ReloadMainArea()
+    {
+        SceneManager.LoadScene("MainAreaScene");
+    }
 }
