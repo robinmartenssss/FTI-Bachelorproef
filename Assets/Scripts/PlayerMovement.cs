@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     bool readyToJump;
 
     [Header ("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
     public string controllerJumpButton = "buttonSouth";
 
     [Header("Ground Check")]
@@ -69,32 +68,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        //jump movement
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
-        {
-            readyToJump = false;
-
-            Jump();
-
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-        else if (Input.GetButtonDown(controllerJumpButton) && readyToJump && grounded)
-        {
-            Debug.Log("hello jumped");
-            readyToJump = false;
-
-            OnButtonRegular();
-   
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-
-       
-    }
+   private void MyInput()
+{
+    horizontalInput = Input.GetAxisRaw("Horizontal");
+    verticalInput = Input.GetAxisRaw("Vertical");
+}
 
     private void MovePlayer()
     {
@@ -120,24 +98,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Jump()
-    {
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
-
     private void OnButtonRegular()
     {
+        if(readyToJump){
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
 
-    private void OnButtonHold()
-    {
-        rb.velocity = new Vector3(rb.velocity.x, 0.5f, rb.velocity.z);
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
+         Debug.Log("hello jumped");
+        readyToJump = false;
 
+        Invoke(nameof(ResetJump), jumpCooldown);
+        } else if (!readyToJump){
+            Debug.Log("you can't jump now");
+        }
+    }
     private void ResetJump()
     {
         readyToJump = true;
