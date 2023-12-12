@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
+    float VerticalOutOfBound;
+    float HorizontalOutOfBounds;
+
+    Vector3 dir;
 
     Vector3 moveDirection;
     Rigidbody rb;
