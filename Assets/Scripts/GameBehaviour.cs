@@ -37,6 +37,21 @@ public class GameBehaviour : MonoBehaviour
         SceneManager.LoadScene("BasketCodeGame");
     }
 
+    public void sceneToMoveToGame2()
+    {
+        SceneManager.LoadScene("Game2");
+    }
+
+    public void sceneToMoveToGame3()
+    {
+        SceneManager.LoadScene("Game3");
+    }
+
+    public void sceneToMoveToGame4()
+    {
+        SceneManager.LoadScene("Game4");
+    }
+
      public void sceneToMoveBackTo()
     {
         SceneManager.LoadScene("MainAreaScene");

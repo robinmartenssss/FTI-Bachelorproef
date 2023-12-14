@@ -7,6 +7,10 @@ TagManager:
   - ScoringArea
   - SceneTransitionBasket
   - SceneTransitionBack
+  - SceneTransitionGame1
+  - SceneTransitionGame2
+  - SceneTransitionGame3
+  - SceneTransitionGame4
   layers:
   - Default
   - TransparentFX

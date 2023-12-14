@@ -134,7 +134,18 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "SceneTransitionBasket") {
             GameBehaviour.Instance.sceneToMoveTo();
         }
+         if(collision.gameObject.tag == "SceneTransitionGame2") {
+            GameBehaviour.Instance.sceneToMoveToGame2();
+        }
+         if(collision.gameObject.tag == "SceneTransitionGame3") {
+            GameBehaviour.Instance.sceneToMoveToGame3();
+        }
+         if(collision.gameObject.tag == "SceneTransitionGame4") {
+            GameBehaviour.Instance.sceneToMoveToGame4();
+        }
     }
+
+   
 
     // public void stepClimber()
     // {
