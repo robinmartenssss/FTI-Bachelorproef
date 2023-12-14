@@ -7,6 +7,7 @@ public class GameBehaviour : MonoBehaviour
 {
 
     public static GameBehaviour  Instance;
+    
 
 
     private void Awake()
