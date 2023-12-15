@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
 
+    public GameObject startGameIntro;
+     public GameObject startGameOverlay;
+
 
     public Transform orientation;
     // public Transform StepStairs;
@@ -59,6 +62,20 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        if (!GameManager.Instance.IsGameFrozen)
+        {
+
+        Vector3 rayOrigin = transform.position;
+
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, transform.forward, out hit, 1.0f))
+        {
+            // Check if the object hit has the tag "SceneTransitionBack"
+            if (hit.collider.CompareTag("SceneTransitionBack"))
+            {
+                GameBehaviour.Instance.sceneToMoveBackTo();
+            }
+        }
 
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
@@ -66,17 +83,24 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
+        startGameIntro.SetActive(false);
+        startGameOverlay.SetActive(false);
+
         //handle the drag
         if(grounded)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
     }
+    }
 
     private void FixedUpdate()
     {
+        if (!GameManager.Instance.IsGameFrozen)
+        {
         MovePlayer();
         stepClimber();
+        }
     }
 
 
@@ -142,8 +166,17 @@ public class PlayerMovement : MonoBehaviour
         }
          if(collision.gameObject.tag == "SceneTransitionGame4") {
             GameBehaviour.Instance.sceneToMoveToGame4();
+        }if(collision.gameObject.tag == "SceneTransitionBack") {
+            GameBehaviour.Instance.sceneToMoveBackTo();
         }
     }
+
+    //  public void OnCollisionEnter2D(Collision2D collision){
+    //     Debug.Log("Collision detected!");
+    //     if(collision.gameObject.tag == "SceneTransitionBack") {
+    //         GameBehaviour.Instance.sceneToMoveBackTo();
+    //     }
+    // }
 
    
 

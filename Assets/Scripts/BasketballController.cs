@@ -42,6 +42,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     private static float timeSinceMovement = 0f;
 
+    public GameObject startGameBasket;
+    public GameObject startGameOverlay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,11 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
          //walking
+          if (!GameManager.Instance.IsGameFrozen)
+        {
+
+        startGameBasket.SetActive(false);
+        startGameOverlay.SetActive(false);
 
         float horizontalInput = Input.GetAxisRaw("Horizontal"); 
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -233,7 +241,7 @@ public class NewBehaviourScript : MonoBehaviour
              CheckScoring();
         }
 
-
+        }
 
     }
 

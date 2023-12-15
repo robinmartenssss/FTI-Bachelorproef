@@ -11,6 +11,28 @@ TagManager:
   - SceneTransitionGame2
   - SceneTransitionGame3
   - SceneTransitionGame4
+  - Coin
+  - Floor
+  - Game2_Option1
+  - Game2_Option2
+  - Game2_Option3
+  - Game2_Option4
+  - Game2_2_Option1
+  - Game2_2_Option2
+  - Game2_2_Option3
+  - Game2_2_Option4
+  - Game2_3_Option1
+  - Game2_3_Option2
+  - Game2_3_Option3
+  - Game2_3_Option4
+  - Game2_4_Option1
+  - Game2_4_Option2
+  - Game2_4_Option3
+  - Game2_4_Option4
+  - Game2_5_Option2
+  - Game2_5_Option1
+  - Game2_5_Option3
+  - Game2_5_Option4
   layers:
   - Default
   - TransparentFX

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isGameFrozen = false;
+    private bool isGameFrozen = true;
 
     // Singleton pattern for easy access
     private static GameManager instance;
@@ -44,5 +45,20 @@ public class GameManager : MonoBehaviour
     {
         isGameFrozen = false;
         // Add any additional logic you might need when unfreezing the game
+    }
+
+    public void StartGame()
+    {
+        // Unfreeze the game when the game starts
+        UnfreezeGame();
+    }
+
+    void Update()
+    {
+        // Check for input to start the game (for example, X key)
+        if (isGameFrozen && Input.GetButtonDown("buttonSouth"))
+        {
+            StartGame();
+        }
     }
 }

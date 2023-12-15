@@ -12,6 +12,11 @@ public class BasicMovement : MonoBehaviour
        
     }
 
+    private void FixedUpdate()
+    {
+       
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +30,8 @@ public class BasicMovement : MonoBehaviour
         transform.LookAt(transform.position + direction);
         }
     }
+
+    
 
 public void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "SceneTransitionBack") {
