@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
   public const float Xspace = 4f;
   public const float Yspacee = -5f;
 
+
   [SerializeField] private MainImageScript startObject;
   [SerializeField] private Sprite[] images;
 
@@ -42,29 +43,43 @@ private MainImageScript secondOpen;
 
   private void Start()
   {
+
+    GameObject yourCanvasGameObject = GameObject.Find("Canvas");
+
+    RectTransform canvasRectTransform = yourCanvasGameObject.GetComponent<RectTransform>();
+
     int[] locations = {0, 0, 1, 1, 2, 2, 3, 3};
     locations = Randomiser(locations);
 
-    Vector3 startPosition = startObject.transform.position;
+    Vector3 startPosition = startObject.transform.localPosition;
 
     for(int i = 0; i < columns; i++)
     {
         for(int j = 0; j < rows; j++)
         {
             MainImageScript gameImage;
+
             if(i == 0 && j == 0)
             {
                 gameImage = startObject;
             }else{
-                gameImage = Instantiate(startObject) as MainImageScript;
+                GameObject gameImageObject = Instantiate(startObject.gameObject, canvasRectTransform);
+                gameImage = gameImageObject.GetComponent<MainImageScript>();
+                gameImageObject.transform.SetParent(canvasRectTransform, false);
+            }
+
+            if (gameImage == null)
+            {
+                Debug.LogError("gameImage is null");
+                continue;
             }
 
             int index = j * columns + i;
             int id = locations[index];
             gameImage.ChangeSprite(id, images[id]);
 
-            float positionX = (Xspace * i) + startPosition.x;
-            float positionY = (Yspacee * j) + startPosition.y;
+            float positionX = (Xspace * i);
+            float positionY = (Yspacee * j);
 
             gameImage.transform.position = new Vector3(positionX, positionY, startPosition.z);
         }
@@ -107,6 +122,11 @@ private MainImageScript secondOpen;
     public void Restart()
     {
         SceneManager.LoadScene("Game3");
+    }
+
+    public void GoHome()
+    {
+        SceneManager.LoadScene("MainAreaScene");
     }
 
 

@@ -33,6 +33,8 @@ TagManager:
   - Game2_5_Option1
   - Game2_5_Option3
   - Game2_5_Option4
+  - Mannetje
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -42,7 +44,7 @@ TagManager:
   - UI
   - LayerGround
   - Cactus
-  - 
+  - Clickable
   - 
   - 
   - 

@@ -7,9 +7,9 @@ public class MainImageScript : MonoBehaviour
    [SerializeField] private GameObject image_unknown;
    [SerializeField] private GameController gameController;
 
-   public void OnMouseDown()
+   public void OnButtonRegular()
    {
-    Debug.Log("Hello");
+    Debug.Log("OnButtonRegular method called");
     if(image_unknown.activeSelf && gameController.canOpen)
     {
         image_unknown.SetActive(false);
