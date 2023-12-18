@@ -1583,6 +1583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image_unknown: {fileID: 218410012}
   gameController: {fileID: 1977044079}
+  _spriteId: 0
 --- !u!212 &835842263
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2385,6 +2386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image_unknown: {fileID: 695629325}
   gameController: {fileID: 1977044079}
+  _spriteId: 0
 --- !u!114 &1403812803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3737,6 +3739,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6c23cb41695f94fb3b6c01301019f0e1, type: 3}
   - {fileID: 21300000, guid: 4b68093aac2cd43db9bf70eb00c7b5e3, type: 3}
   - {fileID: 21300000, guid: d4a3b8c143a544ff8919e681ad96db5c, type: 3}
+  - {fileID: 21300000, guid: 1aed91e5643a5417e9ede7be839bb663, type: 3}
+  - {fileID: 21300000, guid: 8afd3fca4186f4e9695bab9b160e2eb8, type: 3}
+  - {fileID: 21300000, guid: 22a93d3660b15492dbd0a6e23af83caa, type: 3}
+  - {fileID: 21300000, guid: ee122a87184da464ca4e7996fabe7b7b, type: 3}
   scoreText: {fileID: 291980783}
   attemptsText: {fileID: 27638162}
 --- !u!4 &1977044080

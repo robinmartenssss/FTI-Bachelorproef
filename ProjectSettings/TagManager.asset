@@ -35,6 +35,8 @@ TagManager:
   - Game2_5_Option4
   - Mannetje
   - Ball
+  - destroyobject
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -71,4 +73,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 737379447
+    locked: 0
+  - name: Background
+    uniqueID: 1021447687
     locked: 0

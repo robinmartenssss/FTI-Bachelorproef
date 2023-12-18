@@ -15,18 +15,18 @@ public class NewBehaviourScript : MonoBehaviour
     public Transform Target2;
     public Transform Target3;
     public Transform Target4;
+    public Transform Target5;
+    public Transform Target6;
 
     public GameObject scoringCylinderGreenNorth; 
     public GameObject scoringCylinderGreenEast; 
     public GameObject scoringCylinderGreenSouth; 
     public GameObject scoringCylinderGreenWest; 
-    public GameObject scoringTextDoctype;
-    public GameObject scoringTextHtml;
-    public GameObject scoringTextBody;
-    public GameObject scoringTextHtmlclose;
+    public GameObject scoringCylinderGreenOther1; 
+    public GameObject scoringCylinderGreenOther2; 
 
     private GameObject scoringCylinder;
-    private GameObject scoringText;
+
     
 
     private bool IsBallInHands = true;
@@ -35,6 +35,9 @@ public class NewBehaviourScript : MonoBehaviour
     private bool IsBallFlyingEast = false;
     private bool IsBallFlyingSouth = false;
     private bool IsBallFlyingWest = false;
+
+    private bool IsBallFlyingOther1 = false;
+    private bool IsBallFlyingOther2 = false;
     
     private bool isButtonHeld = false;
     private float T = 0;
@@ -45,7 +48,23 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject startGameBasket;
     public GameObject startGameOverlay;
 
+    public GameObject scoredSphere;
+     public GameObject destroyObject;
+     public GameObject placeObject;
+    public float yourSphereMovementSpeed = 20.0f;
+    public float distancePerMovement = 4.0f;
+
+    private Vector3 lastPosition;
+
     // Start is called before the first frame update
+
+    public static NewBehaviourScript Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
     
@@ -102,6 +121,20 @@ public class NewBehaviourScript : MonoBehaviour
                 T = 0;
                 isButtonHeld = false;
             }
+             if (Input.GetButtonDown("buttonOther1")) {
+                transform.LookAt(Target5.parent.position);
+                IsBallInHands = false;
+                IsBallFlyingOther1 = true;
+                T = 0;
+                isButtonHeld = false;
+            }
+            if (Input.GetButtonDown("buttonOther2")) {
+                transform.LookAt(Target6.parent.position);
+                IsBallInHands = false;
+                IsBallFlyingOther2 = true;
+                T = 0;
+                isButtonHeld = false;
+            }
 
             if (Input.GetButtonUp("Cancel")) { 
                    isButtonHeld = false;
@@ -117,17 +150,14 @@ public class NewBehaviourScript : MonoBehaviour
         // Check if there is movement other wise reset scene 
 
         timeSinceMovement += Time.deltaTime;
-        Debug.Log(timeSinceMovement);
 
         if ( direction != Vector3.zero) {
             transform.position += direction * MoveSpeed * Time.deltaTime;
             transform.LookAt(transform.position + direction);
             timeSinceMovement = 0f;
         } if (timeSinceMovement >= 5f && timeSinceMovement <= 5.025f){
-                Debug.Log("hello");
                 ResetScene();
         } else if (timeSinceMovement >= 8f){
-                Debug.Log("helloreset");
                 ResetGame();
         }
            
@@ -241,6 +271,58 @@ public class NewBehaviourScript : MonoBehaviour
              CheckScoring();
         }
 
+          if (IsBallFlyingOther1) {
+            T += Time.deltaTime;
+            float duration = 0.5f;
+            float t05 = T / duration;
+
+
+            Vector3 A = PosOverHead.position;
+            Vector3 B = Target5.position;
+            Vector3 pos = Vector3.Lerp(A,B,t05);
+
+            SetCurrentDirection(Direction.Other1);
+            // Arc of ball 
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t05 * 3.14f);
+
+            Ball.position = pos + arc;
+
+            Arms.localEulerAngles = Vector3.right * 0;
+
+            if (t05 >= 1) {
+                IsBallFlyingOther1 = false;
+                Ball.GetComponent<Rigidbody>().isKinematic = false;
+            }
+
+             CheckScoring();
+        }
+
+         if (IsBallFlyingOther2) {
+            T += Time.deltaTime;
+            float duration = 0.5f;
+            float t06 = T / duration;
+
+
+            Vector3 A = PosOverHead.position;
+            Vector3 B = Target6.position;
+            Vector3 pos = Vector3.Lerp(A,B,t06);
+
+            SetCurrentDirection(Direction.Other2);
+            // Arc of ball 
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t06 * 3.14f);
+
+            Ball.position = pos + arc;
+
+            Arms.localEulerAngles = Vector3.right * 0;
+
+            if (t06 >= 1) {
+                IsBallFlyingOther2 = false;
+                Ball.GetComponent<Rigidbody>().isKinematic = false;
+            }
+
+             CheckScoring();
+        }
+
         }
 
     }
@@ -255,6 +337,10 @@ public class NewBehaviourScript : MonoBehaviour
             return IsBallFlyingSouth;
         case Direction.West:
             return IsBallFlyingWest;
+        case Direction.Other1:
+            return IsBallFlyingOther1;
+        case Direction.Other2:
+            return IsBallFlyingOther2;
         default:
             return false;
     }   
@@ -274,6 +360,12 @@ public class NewBehaviourScript : MonoBehaviour
         case Direction.West:
             IsBallFlyingWest = value;
             break;
+        case Direction.Other1:
+            IsBallFlyingOther1 = value;
+            break;
+         case Direction.Other2:
+            IsBallFlyingOther2 = value;
+            break;
     }
  }
 
@@ -282,7 +374,6 @@ public class NewBehaviourScript : MonoBehaviour
     // Check if the ball is close enough to the target points
     float scoringDistanceThreshold = 1.0f; // Adjust this value based on your game's scale
 
-    Debug.Log("Checking scoring...");
 
     if (Vector3.Distance(Ball.position, Target1.position) < scoringDistanceThreshold)
     {
@@ -300,6 +391,14 @@ public class NewBehaviourScript : MonoBehaviour
     {
         HandleScoring(Direction.East);
     }
+     else if (Vector3.Distance(Ball.position, Target5.position) < scoringDistanceThreshold)
+    {
+        HandleScoring(Direction.Other1);
+    }
+    else if (Vector3.Distance(Ball.position, Target6.position) < scoringDistanceThreshold)
+    {
+        HandleScoring(Direction.Other2);
+    }
 }
 
 
@@ -307,19 +406,19 @@ public enum Direction {
     North,
     East,
     South,
-    West
+    West,
+    Other1,
+    Other2
 }
 
 private void OnTriggerEnter(Collider other)
 {
     if (other.CompareTag("ScoringArea"))
     {
-        Debug.Log("Scoring Trigger entered!");
         HandleScoring(currentDirection);
     }
     else
     {
-        Debug.Log("Ball picked up Trigger entered!");
         HandleBallPickup();
     }
 }
@@ -328,6 +427,37 @@ private void OnTriggerEnter(Collider other)
 private void HandleScoring(Direction scoringDirection)
 {
     Debug.Log("Scoring Logic for Direction: " + scoringDirection);
+    
+       switch (scoringDirection)
+    {
+        case Direction.North:
+            // Implement movement logic for scoring in the North target
+            MoveCharacterForward();
+            break;
+        case Direction.West:
+            // Implement movement logic for scoring in the West target
+            MoveCharacterLeft();
+            break;
+        case Direction.South:
+            // Implement movement logic for scoring in the South target
+            MoveCharacterBackward();
+            break;
+        case Direction.East:
+            // Implement movement logic for scoring in the East target
+            MoveCharacterRight();
+            break;
+        case Direction.Other1:
+            // Implement movement logic for scoring in the East target
+            MoveCharacterDestroy();
+            break;
+        case Direction.Other2:
+            // Implement movement logic for scoring in the East target
+            MoveCharacterPlace();
+            break;    
+        default:
+            Debug.LogError("Invalid scoring direction!");
+            return;
+    }
 
     // Show scoring cylinder at the ball's current position
     ShowScoringCylinder(Ball.position, scoringDirection);
@@ -336,10 +466,84 @@ private void HandleScoring(Direction scoringDirection)
     StartCoroutine(DeactivateScoringCylinderAfterDelay(scoringDirection));
 }
 
+private void MoveCharacterForward()
+{
+    if (!IsBallInHands)
+    {
+        lastPosition = scoredSphere.transform.position;
+        scoredSphere.transform.Translate(Vector3.forward * distancePerMovement);
+    }
+}
+
+private void MoveCharacterLeft()
+{
+    if (!IsBallInHands)
+    {
+        lastPosition = scoredSphere.transform.position;
+        scoredSphere.transform.Translate(Vector3.left * distancePerMovement);
+    }
+}
+
+private void MoveCharacterBackward()
+{
+    if (!IsBallInHands)
+    {
+        lastPosition = scoredSphere.transform.position;
+        scoredSphere.transform.Translate(Vector3.back * distancePerMovement);
+    }
+}
+
+private void MoveCharacterRight()
+{
+    if (!IsBallInHands)
+    {
+        lastPosition = scoredSphere.transform.position;
+        scoredSphere.transform.Translate(Vector3.right * distancePerMovement);
+    }
+}
+
+private void MoveCharacterDestroy()
+{
+    if (!IsBallInHands)
+    {
+        destroyObject.SetActive(false);
+    }
+    StartCoroutine(ResetStateAfterDelayDestroy());
+}
+
+private void MoveCharacterPlace()
+{
+    if (!IsBallInHands)
+    {
+        placeObject.SetActive(true);
+    }
+     StartCoroutine(ResetStateAfterDelayPlaced());
+}
+
+// ResetScene
+private IEnumerator ResetStateAfterDelayDestroy()
+{
+    yield return new WaitForSeconds(5f);
+
+    destroyObject.SetActive(true); 
+}
+
+private IEnumerator ResetStateAfterDelayPlaced()
+{
+    yield return new WaitForSeconds(5f);
+
+    placeObject.SetActive(false);  // Assuming placeObject is a reference to the placed object
+}
+
+
+public void ResetToLastPosition(){
+    Debug.Log("where here");
+    Debug.Log(lastPosition);
+    scoredSphere.transform.position = lastPosition;
+}
 
 private void HandleBallPickup()
 {
-    Debug.Log("Ball picked up Logic");
     if (!IsBallInHands && !IsBallFlyingInDirection(currentDirection))
     {
         IsBallInHands = true;
@@ -355,42 +559,38 @@ private void ShowScoringCylinder(Vector3 position, Direction scoringDirection)
         Debug.Log("Showing scoring cylinder at position: " + position);
 
         GameObject scoringCylinder = null;
-        GameObject scoringText = null;
         
 
         switch (scoringDirection)
         {
             case Direction.North:
                 scoringCylinder = scoringCylinderGreenNorth;
-                scoringText = scoringTextDoctype;
                 break;
             case Direction.East:
                 scoringCylinder = scoringCylinderGreenEast;
-                scoringText = scoringTextHtml;
                 break;
             case Direction.South:
                 scoringCylinder = scoringCylinderGreenSouth;
-                scoringText = scoringTextHtmlclose;
                 break;
             case Direction.West:
                 scoringCylinder = scoringCylinderGreenWest;
-                scoringText = scoringTextBody;
+                break;
+            case Direction.Other1:
+                scoringCylinder = scoringCylinderGreenOther1;
+                break;
+            case Direction.Other2:
+                scoringCylinder = scoringCylinderGreenOther2;
                 break;
             default:
                 Debug.LogError("Invalid scoring direction!");
                 return;
         }
 
-      if (scoringCylinder != null)
+      if (scoringCylinder != null && !IsBallInHands)
 
             {
                 scoringCylinder.SetActive(true);
-                scoringText.SetActive(true);
                 StartCoroutine(DeactivateScoringCylinderAfterDelay(scoringDirection));
-            }
-        else
-            {
-                 Debug.LogError("Scoring cylinder is null!");
             }
     }
 private IEnumerator DeactivateScoringCylinderAfterDelay(Direction direction)
@@ -410,6 +610,12 @@ private IEnumerator DeactivateScoringCylinderAfterDelay(Direction direction)
             break;
         case Direction.East:
             scoringCylinderGreenEast.SetActive(false);
+            break;
+        case Direction.Other1:
+            scoringCylinderGreenOther1.SetActive(false);
+            break;
+        case Direction.Other2:
+            scoringCylinderGreenOther2.SetActive(false);
             break;
     }
 }
@@ -434,6 +640,8 @@ private void ResetGame(){
 
     timeSinceMovement = 0f;
 }
+
+
    
 
 }
