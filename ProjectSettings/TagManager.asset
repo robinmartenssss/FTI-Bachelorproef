@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - ScoringArea
+  - SceneTransitionBasket
+  - SceneTransitionBack
+  - SceneTransitionGame1
+  - SceneTransitionGame2
+  - SceneTransitionGame3
+  - SceneTransitionGame4
+  - Coin
+  - Floor
+  - Game2_Option1
+  - Game2_Option2
+  - Game2_Option3
+  - Game2_Option4
+  - Game2_2_Option1
+  - Game2_2_Option2
+  - Game2_2_Option3
+  - Game2_2_Option4
+  - Game2_3_Option1
+  - Game2_3_Option2
+  - Game2_3_Option3
+  - Game2_3_Option4
+  - Game2_4_Option1
+  - Game2_4_Option2
+  - Game2_4_Option3
+  - Game2_4_Option4
+  - Game2_5_Option2
+  - Game2_5_Option1
+  - Game2_5_Option3
+  - Game2_5_Option4
+  - Mannetje
+  - Ball
+  - destroyobject
+  - wall
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - LayerGround
+  - Cactus
+  - Clickable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 737379447
+    locked: 0
+  - name: Background
+    uniqueID: 1021447687
+    locked: 0
